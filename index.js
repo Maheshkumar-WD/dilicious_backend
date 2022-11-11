@@ -3,8 +3,8 @@ const address = require("address");
 const cors = require("cors");
 const { connection } = require("./configs/db");
 const { restaurentRoute } = require("./routes/restaurent.route");
-const { CategoryModel } = require("./models/category.model");
 const { categoryRoute } = require("./routes/category.route");
+const { foodItemRoute } = require("./routes/footitem.route");
 require("dotenv").config();
 // --------------
 const app = express();
@@ -16,10 +16,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/restaurent", restaurentRoute);
-app.use("/category",categoryRoute);
-
-
-
+app.use("/category", categoryRoute);
+app.use("/fooditems", foodItemRoute);
 
 // ------------------------
 const PORT = process.env.PORT || 8080;
